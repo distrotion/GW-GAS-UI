@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../bloc/cubit/Rebuild.dart';
+import 'P1FIRSTUI/FIRSTuiMAIN.dart';
 
 //---------------------------------------------------------
 
@@ -7,7 +11,20 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Page1Body();
+    return Page1REBUILD();
+  }
+}
+
+class Page1REBUILD extends StatelessWidget {
+  const Page1REBUILD({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<BlocPageRebuild, bool>(
+      builder: (_, e) {
+        return Page1Body();
+      },
+    );
   }
 }
 
@@ -17,12 +34,7 @@ class Page1Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        height: 100,
-        width: 100,
-        color: Colors.blue,
-        child: const Text("PAGE 1"),
-      ),
+      child: FIRSTUIMAIN(),
     );
   }
 }

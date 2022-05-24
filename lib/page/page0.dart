@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/BlocEvent/ChangePageEvent.dart';
 import '../data/datapattern.dart';
+import '../data/global.dart';
+import '../mainBody.dart';
 import '../widget/common/Checkbox.dart';
 import '../widget/common/Radiobutton.dart';
 import 'TEST.dart';
+import 'page1.dart';
+import 'page2.dart';
 
 bool isChecked = false;
 
@@ -21,14 +27,23 @@ class Page0Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      // child: Container(
-      //     height: 100,
-      //     width: 200,
-      //     color: Colors.orange,
-      //     child: const Center(
-      //         child: Text("initial Page \nor do something wrong"))),
-      child: radiotest(),
-    );
+    // return InkWell(
+    //   onTap: () {
+    //     CuPage = Page2();
+    //     CuPageLV = 1;
+    //     MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+    //   },
+    //   child: Center(
+    //     child: Container(
+    //       height: 100,
+    //       width: 200,
+    //       color: Colors.orange,
+    //       child:
+    //           const Center(child: Text("initial Page \nor do something wrong")),
+    //     ),
+
+    //   ),
+    // );
+    return Center(child: Page1());
   }
 }
