@@ -27,7 +27,6 @@ class SELECtINSTRUMENT extends StatelessWidget {
             // INSConsoleBox();
             CuPage = Page2();
             CuPageLV = 1;
-
             MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
           },
           child: INSBOX(
