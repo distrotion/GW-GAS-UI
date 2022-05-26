@@ -302,13 +302,13 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "gw_gas_ui",
+      "name": "qc_ui",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-05-24T07:42:24.248702Z",
+  "generated": "2022-05-26T12:45:58.850564Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

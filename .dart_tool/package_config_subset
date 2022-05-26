@@ -1,7 +1,7 @@
-gw_gas_ui
+qc_ui
 2.16
-file:///Users/administrator/TPK/QC/GW-GAS-UI/
-file:///Users/administrator/TPK/QC/GW-GAS-UI/lib/
+file:///Users/administrator/TPK/QC/QC-UI/
+file:///Users/administrator/TPK/QC/QC-UI/lib/
 async
 2.12
 file:///Users/administrator/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
