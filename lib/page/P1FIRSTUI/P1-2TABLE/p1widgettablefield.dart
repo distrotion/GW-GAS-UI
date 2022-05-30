@@ -1,15 +1,55 @@
 import 'package:flutter/material.dart';
 
+import '../../../styles/TextStyle.dart';
+
 class P1WIDGETFIELD extends StatefulWidget {
   P1WIDGETFIELD({
     Key? key,
     this.height,
     this.SELECTFUNC,
     this.isSELECTFUNC,
+    this.B01,
+    this.B02,
+    this.B03,
+    this.B04,
+    this.B05,
+    this.B06,
+    this.B07,
+    this.B08,
+    this.CB01,
+    this.CB02,
+    this.CB03,
+    this.CB04,
+    this.CB05,
+    this.CB06,
+    this.CB07,
+    this.CB08,
+    this.FCB,
+    this.forntsize,
   }) : super(key: key);
   double? height;
   Function? SELECTFUNC;
   bool? isSELECTFUNC;
+  double? forntsize;
+  String? B01;
+  String? B02;
+  String? B03;
+  String? B04;
+  String? B05;
+  String? B06;
+  String? B07;
+  String? B08;
+
+  Color? CB01;
+  Color? CB02;
+  Color? CB03;
+  Color? CB04;
+  Color? CB05;
+  Color? CB06;
+  Color? CB07;
+  Color? CB08;
+
+  Color? FCB;
 
   @override
   State<P1WIDGETFIELD> createState() => _P1WIDGETFIELDState();
@@ -26,18 +66,32 @@ class _P1WIDGETFIELDState extends State<P1WIDGETFIELD> {
             child: Container(
               height: widget.height ?? 35,
               decoration: BoxDecoration(
+                color: widget.CB01 ?? Colors.white,
                 border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.all(Radius.circular(0)),
+              ),
+              child: Center(
+                child: Text(widget.B01 ?? '',
+                    style: TxtStyle(
+                        color: widget.FCB ?? Colors.black,
+                        fontSize: widget.forntsize ?? 14)),
               ),
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Container(
               height: widget.height ?? 35,
               decoration: BoxDecoration(
+                color: widget.CB02 ?? Colors.white,
                 border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.all(Radius.circular(0)),
+              ),
+              child: Center(
+                child: Text(widget.B02 ?? '',
+                    style: TxtStyle(
+                        color: widget.FCB ?? Colors.black,
+                        fontSize: widget.forntsize ?? 14)),
               ),
             ),
           ),
@@ -46,8 +100,15 @@ class _P1WIDGETFIELDState extends State<P1WIDGETFIELD> {
             child: Container(
               height: widget.height ?? 35,
               decoration: BoxDecoration(
+                color: widget.CB03 ?? Colors.white,
                 border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.all(Radius.circular(0)),
+              ),
+              child: Center(
+                child: Text(widget.B03 ?? '',
+                    style: TxtStyle(
+                        color: widget.FCB ?? Colors.black,
+                        fontSize: widget.forntsize ?? 14)),
               ),
             ),
           ),
@@ -56,8 +117,15 @@ class _P1WIDGETFIELDState extends State<P1WIDGETFIELD> {
             child: Container(
               height: widget.height ?? 35,
               decoration: BoxDecoration(
+                color: widget.CB04 ?? Colors.white,
                 border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.all(Radius.circular(0)),
+              ),
+              child: Center(
+                child: Text(widget.B04 ?? '',
+                    style: TxtStyle(
+                        color: widget.FCB ?? Colors.black,
+                        fontSize: widget.forntsize ?? 14)),
               ),
             ),
           ),
@@ -66,38 +134,15 @@ class _P1WIDGETFIELDState extends State<P1WIDGETFIELD> {
             child: Container(
               height: widget.height ?? 35,
               decoration: BoxDecoration(
+                color: widget.CB05 ?? Colors.white,
                 border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.all(Radius.circular(0)),
               ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              height: widget.height ?? 35,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: const BorderRadius.all(Radius.circular(0)),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              height: widget.height ?? 35,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: const BorderRadius.all(Radius.circular(0)),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              height: widget.height ?? 35,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: const BorderRadius.all(Radius.circular(0)),
+              child: Center(
+                child: Text(widget.B05 ?? '',
+                    style: TxtStyle(
+                        color: widget.FCB ?? Colors.black,
+                        fontSize: widget.forntsize ?? 14)),
               ),
             ),
           ),
@@ -106,6 +151,41 @@ class _P1WIDGETFIELDState extends State<P1WIDGETFIELD> {
             child: Container(
               height: widget.height ?? 35,
               decoration: BoxDecoration(
+                color: widget.CB06 ?? Colors.white,
+                border: Border.all(color: Colors.black),
+                borderRadius: const BorderRadius.all(Radius.circular(0)),
+              ),
+              child: Center(
+                child: Text(widget.B06 ?? '',
+                    style: TxtStyle(
+                        color: widget.FCB ?? Colors.black,
+                        fontSize: widget.forntsize ?? 14)),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              height: widget.height ?? 35,
+              decoration: BoxDecoration(
+                color: widget.CB07 ?? Colors.white,
+                border: Border.all(color: Colors.black),
+                borderRadius: const BorderRadius.all(Radius.circular(0)),
+              ),
+              child: Center(
+                child: Text(widget.B07 ?? '',
+                    style: TxtStyle(
+                        color: widget.FCB ?? Colors.black,
+                        fontSize: widget.forntsize ?? 14)),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              height: widget.height ?? 35,
+              decoration: BoxDecoration(
+                color: widget.CB08 ?? Colors.white,
                 border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.all(Radius.circular(0)),
               ),
@@ -114,17 +194,27 @@ class _P1WIDGETFIELDState extends State<P1WIDGETFIELD> {
                       padding: const EdgeInsets.all(4.0),
                       child: InkWell(
                         onTap: () {
-                          widget.SELECTFUNC!("ok") ?? () {};
+                          widget.SELECTFUNC!(widget.B01) ?? () {};
                         },
                         child: Container(
-                          color: Colors.blue,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            border: Border.all(color: Colors.black),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8)),
+                          ),
                           child: const Center(
                             child: Text("SELECT"),
                           ),
                         ),
                       ),
                     )
-                  : null,
+                  : Center(
+                      child: Text(widget.B08 ?? '',
+                          style: TxtStyle(
+                              color: widget.FCB ?? Colors.black,
+                              fontSize: widget.forntsize ?? 14)),
+                    ),
             ),
           ),
         ],

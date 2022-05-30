@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
 
+import '../../data/model.dart';
 import 'P1-2TABLE/p1maintable.dart';
 import 'P1-3INSTRUMENT/p1mainseins.dart';
 
 late BuildContext FIRSTUIMAINcontext;
 
 class FIRSTUIMAIN extends StatelessWidget {
-  const FIRSTUIMAIN({Key? key}) : super(key: key);
-
+  FIRSTUIMAIN({Key? key, this.sapdata}) : super(key: key);
+  List<dataset>? sapdata;
   @override
   Widget build(BuildContext context) {
     FIRSTUIMAINcontext = context;
-    return FIRSTUIMAINbody();
+    return FIRSTUIMAINbody(
+      sapdata: sapdata,
+    );
   }
 }
 
 class FIRSTUIMAINbody extends StatelessWidget {
-  const FIRSTUIMAINbody({Key? key}) : super(key: key);
+  FIRSTUIMAINbody({Key? key, this.sapdata}) : super(key: key);
+  List<dataset>? sapdata;
 
   @override
   Widget build(BuildContext context) {
-    double maxwidth = 850;
+    double maxwidth = 1000;
     double maxheight = 450;
     return Container(
       width: maxwidth,
@@ -32,7 +36,7 @@ class FIRSTUIMAINbody extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            flex: 6,
+            flex: 8,
             child: Column(
               children: [
                 Expanded(
@@ -50,7 +54,7 @@ class FIRSTUIMAINbody extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 3,
+                  flex: 5,
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(
                         top: 1, bottom: 2, start: 2, end: 1),
@@ -60,7 +64,9 @@ class FIRSTUIMAINbody extends StatelessWidget {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(0)),
                       ),
-                      child: MAINTABLEP1(),
+                      child: MAINTABLEP1(
+                        sapdata: sapdata,
+                      ),
                     ),
                   ),
                 )
@@ -68,7 +74,7 @@ class FIRSTUIMAINbody extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Padding(
               padding: const EdgeInsetsDirectional.only(
                   top: 2, bottom: 2, start: 1, end: 2),

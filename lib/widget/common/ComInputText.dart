@@ -41,6 +41,7 @@ class ComInputText extends StatefulWidget {
     this.width,
     this.iconheight,
     this.iconwidth,
+    this.isSideIcon,
     required this.returnfunc,
   }) : super(key: key);
 
@@ -65,6 +66,7 @@ class ComInputText extends StatefulWidget {
   final Function? fnContr;
   Function returnfunc;
 
+  final bool? isSideIcon;
   final bool? isContr;
   final double? height;
   final double? width;
@@ -229,6 +231,23 @@ class _ComInputTextState extends State<ComInputText> {
           padding: const EdgeInsets.only(right: 12.0, left: 12, top: 8.0, bottom: 8.0),
           child: Container(height: 24, width: 24, decoration: BoxDecoration(image: DecorationImage(image: AssetImage(getCorrectIconEmail_ImgPath()), fit: BoxFit.fitHeight))),
         );*/
+      } else if (widget.isSideIcon ?? false) {
+        return InkWell(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.only(
+                right: 12.0, left: 12, top: 8.0, bottom: 8.0),
+            child: Container(
+              height: widget.iconheight ?? 24,
+              width: widget.iconwidth ?? 24,
+              child: const Icon(Icons.search),
+              // decoration: BoxDecoration(
+              //     image: DecorationImage(
+              //         image: AssetImage(getShowHidePassword_ImgPath()),
+              //         fit: BoxFit.fitHeight)),
+            ),
+          ),
+        );
       } else {
         return null;
       }

@@ -297,6 +297,7 @@ class _radiotestState extends State<radiotest> {
 
 
 
+
 // class Page1BlocTableBody extends StatelessWidget {
 //   /// {@macro counter_page}
 //   const Page1BlocTableBody({Key? key}) : super(key: key);
@@ -326,3 +327,38 @@ class _radiotestState extends State<radiotest> {
 // context.read<PremixDataSetBloc>().add(GetDataPressed());
 
 // BlocProvider.of<BlocPageRebuild>(context).rebuildPage();
+
+
+// for (int i = 0; i < maxins; i++) {
+//       INSOUTPUT.add(Padding(
+//         padding: const EdgeInsets.all(4.0),
+//         child: InkWell(
+//           onTap: () {
+//             // INSConsoleBox();
+//             CuPage = Page2();
+//             CuPageLV = 1;
+//             MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+//           },
+//           child: INSBOX(
+//             INS: ' INS ${i + 1}',
+//           ),
+//         ),
+//       ));
+//     }
+
+// List<Widget> tableout = [
+//       P1WIDGETFIELD(
+//         isSELECTFUNC: true,
+//         SELECTFUNC: (input) {
+//           FIRSTUI.INSCOUTTEST = 2;
+//           contextGB.read<BlocPageRebuild>().rebuildPage();
+//         },
+//       ),
+//       P1WIDGETFIELD(
+//         isSELECTFUNC: true,
+//         SELECTFUNC: (input) {
+//           FIRSTUI.INSCOUTTEST = 3;
+//           contextGB.read<BlocPageRebuild>().rebuildPage();
+//         },
+//       ),
+//     ];

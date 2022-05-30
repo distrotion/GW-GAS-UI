@@ -19,22 +19,7 @@ class SELECtINSTRUMENT extends StatelessWidget {
   Widget build(BuildContext context) {
     int maxins = FIRSTUI.INSCOUTTEST;
     List<Widget> INSOUTPUT = [];
-    for (int i = 0; i < maxins; i++) {
-      INSOUTPUT.add(Padding(
-        padding: EdgeInsets.all(4.0),
-        child: InkWell(
-          onTap: () {
-            // INSConsoleBox();
-            CuPage = Page2();
-            CuPageLV = 1;
-            MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
-          },
-          child: INSBOX(
-            INS: ' INS ${i + 1}',
-          ),
-        ),
-      ));
-    }
+
     return SizedBox(
       child: Padding(
         padding: const EdgeInsets.all(2.0),
@@ -45,3 +30,23 @@ class SELECtINSTRUMENT extends StatelessWidget {
     );
   }
 }
+
+
+// for (int i = 0; i < maxins; i++) {
+//       INSOUTPUT.add(Padding(
+//         padding: const EdgeInsets.all(4.0),
+//         child: InkWell(
+//           onTap: () {
+//             // INSConsoleBox();
+//             CuPage = Page2();
+//             CuPageLV = 1;
+//             MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+//           },
+//           child: INSBOX(
+//             INS: ' INS ${i + 1}',
+//           ),
+//         ),
+//       ));
+//     }
+
+
