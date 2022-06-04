@@ -30,7 +30,7 @@ class menu_normal extends StatelessWidget {
         height: 50,
         child: Row(
           children: [
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
             Align(
@@ -52,7 +52,7 @@ class menu_normal extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "   " + _name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'Mitr',
                     color: Colors.white,
                     fontSize: 14,

@@ -8,6 +8,7 @@ import '../consolelayout.dart';
 class SINGLESHOTmain extends StatelessWidget {
   SINGLESHOTmain({
     Key? key,
+    //------ Left
     this.PO,
     this.CP,
     this.QTY,
@@ -19,18 +20,65 @@ class SINGLESHOTmain extends StatelessWidget {
     this.PART,
     this.PARTNAME,
     this.MATERIAL,
+    //------- Top
+    required this.ItemPickres,
+    this.ItemPick,
+    this.PCS,
+    this.PCSleft,
+    this.UNIT,
+    this.INTERSEC,
+    //------- Bottom
+    required this.ACCEPT,
+    required this.FINISH,
+    this.preview,
+    this.confirmdata,
+    //------- Right
+    required this.CLEAR,
+    required this.BACKPAGE,
+    required this.RESETVALUE,
+    this.ITEMleftUNIT,
+    this.ITEMleftVALUE,
+    //-------
   }) : super(key: key);
-  String? PO;
-  String? CP;
-  String? QTY;
-  String? PROCESS;
-  String? CUSLOT;
-  String? TPKLOT;
-  String? FG;
-  String? CUSTOMER;
-  String? PART;
-  String? PARTNAME;
-  String? MATERIAL;
+
+  //Left --------------------------------------------
+  String? PO; //ok
+  String? CP; //ok
+  String? QTY; //ok
+  String? PROCESS; //ok
+  String? CUSLOT; //ok
+  String? TPKLOT; //ok
+  String? FG; //ok
+  String? CUSTOMER; //ok
+  String? PART; //ok
+  String? PARTNAME; //ok
+  String? MATERIAL; //ok
+
+  //Top --------------------------------------------
+
+  Function ItemPickres; //ok
+
+  List<String>? ItemPick; //ok
+  String? PCS; //ok
+  String? PCSleft; //ok
+  String? UNIT; //ok
+  String? Ghtype; //nouse
+  String? INTERSEC; //nouse
+  //Bottom --------------------------------------------
+
+  Function ACCEPT;
+  Function FINISH;
+
+  List<INSDATA>? preview; //ok
+  List<INSDATA>? confirmdata; //ok
+
+  //Right --------------------------------------------
+  Function CLEAR;
+  Function BACKPAGE;
+  Function RESETVALUE;
+
+  List<INSDATA>? ITEMleftUNIT; // ok
+  List<INSDATA>? ITEMleftVALUE; // ok
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +108,9 @@ class SINGLESHOTmain extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(1.0),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            ACCEPT(PO) ?? () {};
+                          },
                           child: Container(
                             height: 40,
                             color: Colors.blue,
@@ -79,7 +129,9 @@ class SINGLESHOTmain extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(1.0),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            FINISH(PO) ?? () {};
+                          },
                           child: Container(
                             height: 40,
                             color: Colors.green,
@@ -119,39 +171,9 @@ class SINGLESHOTmain extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 40,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(0)),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(0)),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(0)),
-                          ),
-                        ),
-                      ),
-                    ],
+                  child: _tabtableB3(
+                    height: 40,
+                    value: preview ?? [INSDATA()],
                   ),
                 ),
                 SizedBox(
@@ -178,39 +200,9 @@ class SINGLESHOTmain extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 40,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(0)),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(0)),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(0)),
-                          ),
-                        ),
-                      ),
-                    ],
+                  child: _tabtableB3(
+                    height: 40,
+                    value: confirmdata ?? [INSDATA()],
                   ),
                 ),
               ],
@@ -221,9 +213,14 @@ class SINGLESHOTmain extends StatelessWidget {
       childTOP: [
         _topboxfull(
           outfn: (input) {
-            print(input);
+            ItemPickres(input) ?? () {};
           },
-          dropdown: const ["", "1", "2"],
+          dropdown: ItemPick ?? [''],
+          PCS: PCS,
+          PCSleft: PCSleft,
+          UNIT: UNIT,
+          Ghtype: Ghtype,
+          INTERSEC: INTERSEC,
         )
       ],
       childRIGHT: [
@@ -234,7 +231,34 @@ class SINGLESHOTmain extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    CLEAR(PO) ?? () {};
+                  },
+                  child: Container(
+                    height: 40,
+                    color: Colors.orange,
+                    child: const Center(
+                      child: Text("CLEAR",
+                          style: TxtStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: InkWell(
+                  onTap: () {
+                    BACKPAGE(PO) ?? () {};
+                  },
                   child: Container(
                     height: 40,
                     color: Colors.blue,
@@ -257,7 +281,9 @@ class SINGLESHOTmain extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    RESETVALUE(PO) ?? () {};
+                  },
                   child: Container(
                     height: 40,
                     color: Colors.red,
@@ -282,7 +308,9 @@ class SINGLESHOTmain extends StatelessWidget {
                 child: Container(
                   height: 25,
                   color: Colors.grey,
-                  child: _tabtable(),
+                  child: _tabtableB2(
+                    value: [INSDATA(V1: "M FOR", V2: "ITEMs")],
+                  ),
                 ),
               ),
             ),
@@ -295,12 +323,10 @@ class SINGLESHOTmain extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: SizedBox(
-                  height: 125,
+                  height: 50,
                   child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        _tabtable(),
-                      ],
+                    child: _tabtableB2(
+                      value: ITEMleftUNIT ?? [INSDATA()],
                     ),
                   ),
                 ),
@@ -317,7 +343,14 @@ class SINGLESHOTmain extends StatelessWidget {
                 child: Container(
                   height: 25,
                   color: Colors.grey,
-                  child: _tabtable(),
+                  child: _tabtableB2(
+                    value: [
+                      INSDATA(
+                        V1: "ITEM",
+                        V2: "Values",
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -330,13 +363,27 @@ class SINGLESHOTmain extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: SizedBox(
-                  height: 125,
+                  height: 100,
                   child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        _tabtable(),
-                      ],
-                    ),
+                      child: _tabtableB2(
+                    value: ITEMleftVALUE ?? [INSDATA()],
+                  )),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Container(
+                  height: 90,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: const BorderRadius.all(Radius.circular(0)),
                   ),
                 ),
               ),
@@ -354,11 +401,18 @@ class _topboxfull extends StatefulWidget {
     required this.outfn,
     required this.dropdown,
     this.PCS,
+    this.PCSleft,
+    this.UNIT,
+    this.Ghtype,
+    this.INTERSEC,
   }) : super(key: key);
   Function outfn;
   List<String> dropdown;
   String? PCS;
-  String? POINTS;
+  String? PCSleft;
+  String? UNIT;
+  String? Ghtype;
+  String? INTERSEC;
 
   @override
   State<_topboxfull> createState() => __topboxfullState();
@@ -408,7 +462,16 @@ class __topboxfullState extends State<_topboxfull> {
                 width: 100,
                 child: Row(
                   children: [
-                    const Expanded(flex: 1, child: Text('PCS')),
+                    const Expanded(
+                        flex: 1,
+                        child: Text(
+                          'PCS',
+                          style: TxtStyle(
+                            color: Colors.black,
+                            // fontSize: 12
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )),
                     Expanded(flex: 2, child: Text(widget.PCS ?? '')),
                   ],
                 ),
@@ -425,8 +488,15 @@ class __topboxfullState extends State<_topboxfull> {
                 width: 200,
                 child: Row(
                   children: [
-                    const Expanded(flex: 2, child: Text('PSC left')),
-                    Expanded(flex: 1, child: Text(widget.PCS ?? '')),
+                    const Expanded(
+                        flex: 2,
+                        child: Text('PSC left',
+                            style: TxtStyle(
+                              color: Colors.black,
+                              // fontSize: 12
+                              fontWeight: FontWeight.bold,
+                            ))),
+                    Expanded(flex: 1, child: Text(widget.PCSleft ?? '')),
                   ],
                 ),
               ),
@@ -438,8 +508,15 @@ class __topboxfullState extends State<_topboxfull> {
                 width: 200,
                 child: Row(
                   children: [
-                    const Expanded(flex: 2, child: Text('UNIT')),
-                    Expanded(flex: 1, child: Text(widget.PCS ?? '')),
+                    const Expanded(
+                        flex: 2,
+                        child: Text('UNIT',
+                            style: TxtStyle(
+                              color: Colors.black,
+                              // fontSize: 12
+                              fontWeight: FontWeight.bold,
+                            ))),
+                    Expanded(flex: 1, child: Text(widget.UNIT ?? '')),
                   ],
                 ),
               ),
@@ -449,29 +526,37 @@ class __topboxfullState extends State<_topboxfull> {
         Expanded(
           flex: 1,
           child: Row(
-            children: [
+            children: const [
               SizedBox(
                 height: 38,
                 width: 200,
-                child: Row(
-                  children: [
-                    const Expanded(flex: 2, child: Text('Gh type')),
-                    Expanded(flex: 1, child: Text(widget.PCS ?? '')),
-                  ],
-                ),
+                // child: Row(
+                //   children: [
+                //     const Expanded(flex: 2, child: Text('Gh type',style: TxtStyle(
+                //             color: Colors.black,
+                //             // fontSize: 12
+                //             fontWeight: FontWeight.bold,
+                //           ))),
+                //     Expanded(flex: 1, child: Text(widget.Ghtype ?? '')),
+                //   ],
+                // ),
               ),
-              const SizedBox(
+              SizedBox(
                 width: 10,
               ),
               SizedBox(
                 height: 38,
                 width: 200,
-                child: Row(
-                  children: [
-                    const Expanded(flex: 1, child: Text('Intersec @')),
-                    Expanded(flex: 1, child: Text(widget.PCS ?? '')),
-                  ],
-                ),
+                // child: Row(
+                //   children: [
+                //     const Expanded(flex: 1, child: Text('Intersec @',style: TxtStyle(
+                //             color: Colors.black,
+                //             // fontSize: 12
+                //             fontWeight: FontWeight.bold,
+                //           ))),
+                //     Expanded(flex: 1, child: Text(widget.INTERSEC ?? '')),
+                //   ],
+                // ),
               ),
             ],
           ),
@@ -481,33 +566,160 @@ class __topboxfullState extends State<_topboxfull> {
   }
 }
 
-class _tabtable extends StatelessWidget {
-  const _tabtable({Key? key}) : super(key: key);
+class _tabtableB2 extends StatelessWidget {
+  _tabtableB2({
+    Key? key,
+    this.value,
+    this.txtsize,
+    this.txtcolor,
+    this.height,
+  }) : super(key: key);
+  List<INSDATA>? value;
+  double? txtsize;
+  Color? txtcolor;
+  double? height;
 
   @override
   Widget build(BuildContext context) {
+    List<INSDATA> _value = value ?? [];
     return SizedBox(
-      height: 40,
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: const BorderRadius.all(Radius.circular(0)),
-              ),
+          for (int i = 0; i < _value.length; i++)
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: height ?? 25,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: const BorderRadius.all(Radius.circular(0)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        value?[i].V1 ?? '',
+                        style: TxtStyle(
+                            color: txtcolor ?? Colors.black,
+                            fontSize: txtsize ?? 12
+                            // fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: height ?? 25,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: const BorderRadius.all(Radius.circular(0)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        value?[i].V2 ?? '',
+                        style: TxtStyle(
+                            color: txtcolor ?? Colors.black,
+                            fontSize: txtsize ?? 12
+                            // fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: const BorderRadius.all(Radius.circular(0)),
-              ),
+        ],
+      ),
+    );
+  }
+}
+
+class _tabtableB3 extends StatelessWidget {
+  _tabtableB3({
+    Key? key,
+    this.value,
+    this.txtsize,
+    this.txtcolor,
+    this.height,
+  }) : super(key: key);
+  List<INSDATA>? value;
+  double? txtsize;
+  Color? txtcolor;
+  double? height;
+
+  @override
+  Widget build(BuildContext context) {
+    List<INSDATA> _value = value ?? [];
+    return SizedBox(
+      child: Column(
+        children: [
+          for (int i = 0; i < _value.length; i++)
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: height ?? 25,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: const BorderRadius.all(Radius.circular(0)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        value?[i].V1 ?? '',
+                        style: TxtStyle(
+                            color: txtcolor ?? Colors.black,
+                            fontSize: txtsize ?? 12
+                            // fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: height ?? 25,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: const BorderRadius.all(Radius.circular(0)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        value?[i].V2 ?? '',
+                        style: TxtStyle(
+                            color: txtcolor ?? Colors.black,
+                            fontSize: txtsize ?? 12
+                            // fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: height ?? 25,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: const BorderRadius.all(Radius.circular(0)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        value?[i].V3 ?? '',
+                        style: TxtStyle(
+                            color: txtcolor ?? Colors.black,
+                            fontSize: txtsize ?? 12
+                            // fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
         ],
       ),
     );

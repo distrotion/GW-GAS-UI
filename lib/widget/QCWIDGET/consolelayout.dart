@@ -382,3 +382,19 @@ class _dataDH extends StatelessWidget {
     );
   }
 }
+
+class INSDATA {
+  INSDATA({
+    this.V1 = '',
+    this.V2 = '',
+    this.V3 = '',
+    this.V4 = '',
+    this.V5 = '',
+  });
+
+  String V1;
+  String V2;
+  String V3;
+  String V4;
+  String V5;
+}
