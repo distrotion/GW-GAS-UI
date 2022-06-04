@@ -19,6 +19,7 @@ class SINGLESHITLAYOUT extends StatelessWidget {
     this.PART,
     this.PARTNAME,
     this.MATERIAL,
+    this.cocover,
   }) : super(key: key);
   List<Widget>? childTOP;
   List<Widget>? childBOT;
@@ -35,6 +36,8 @@ class SINGLESHITLAYOUT extends StatelessWidget {
   String? PARTNAME;
   String? MATERIAL;
 
+  Color? cocover;
+
   @override
   Widget build(BuildContext context) {
     double maxwidth = 850;
@@ -44,7 +47,7 @@ class SINGLESHITLAYOUT extends StatelessWidget {
         width: maxwidth,
         height: maxheight,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
+          border: Border.all(color: cocover ?? Colors.black),
           borderRadius: const BorderRadius.all(Radius.circular(0)),
         ),
         child: Row(
@@ -90,8 +93,11 @@ class SINGLESHITLAYOUT extends StatelessWidget {
                           borderRadius:
                               const BorderRadius.all(Radius.circular(0)),
                         ),
-                        child: Row(
-                          children: childTOP ?? [],
+                        child: Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Row(
+                            children: childTOP ?? [],
+                          ),
                         ),
                       ),
                     ),

@@ -19,6 +19,7 @@ class AdvanceDropDown extends StatefulWidget {
   }) : super(key: key);
   List<MapEntry<String, String>>? listdropdown;
   Function onChangeinside;
+  Function? getkey;
   String value;
   double width;
   double height;
@@ -34,6 +35,7 @@ class AdvanceDropDown extends StatefulWidget {
 
 class _AdvanceDropDownState extends State<AdvanceDropDown> {
   String? _showstr;
+  String? _showstrKEY;
   @override
   Widget build(BuildContext context) {
     List<MapEntry<String, String>> _listdropdown =
@@ -45,6 +47,9 @@ class _AdvanceDropDownState extends State<AdvanceDropDown> {
     ];
 
     List outputZ = [];
+    if (widget.value != '') {
+      _showstr = widget.value;
+    }
 
     List outputR = [
       for (int i = 0; i < _listdropdown.length; i++)
@@ -73,49 +78,57 @@ class _AdvanceDropDownState extends State<AdvanceDropDown> {
             borderRadius:
                 BorderRadius.all(Radius.circular(widget.borderRaio ?? 8.0)),
           ),
-          child: DropdownButton<String>(
-            // borderRadius: BorderRadius.all(Radius.circular(10)),
-            // disabledHint: Text("123"),
-            hint: Text(widget.hint ?? 'Select something'),
-            // disabledHint: Text("Disable Hint"),
-            value: _showstr,
-            isExpanded: true,
-            // iconDisabledColor: Colors.transparent,
-            // iconEnabledColor: Colors.transparent,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(start: 5, end: 5),
+            child: DropdownButton<String>(
+              // borderRadius: BorderRadius.all(Radius.circular(10)),
+              // disabledHint: Text("123"),
+              hint: Text(widget.hint ?? 'Select something'),
+              // disabledHint: Text("Disable Hint"),
+              value: _showstr,
+              isExpanded: true,
+              // iconDisabledColor: Colors.transparent,
+              // iconEnabledColor: Colors.transparent,
 
-            icon: _img != ''
-                ? Container(
-                    height: 24,
-                    width: 24,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(_img), fit: BoxFit.fitHeight),
-                    ),
+              icon: _img != ''
+                  ? Container(
+                      height: 24,
+                      width: 24,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(_img), fit: BoxFit.fitHeight),
+                      ),
+                    )
+                  : null,
+              // iconSize: 24,
+              // elevation: 16,
+
+              style: const TextStyle(color: Colors.black),
+              underline: Container(
+                height: 2,
+                color: Colors.transparent,
+              ),
+              onChanged: (String? newValue) {
+                setState(() {
+                  widget.onChangeinside(newValue!, _showstrKEY);
+                  widget.value = newValue;
+                  _showstr = newValue;
+                });
+              },
+
+              items: [
+                for (int i = 0; i < _listdropdown.length; i++)
+                  DropdownMenuItem(
+                    onTap: () {
+                      setState(() {
+                        _showstrKEY = _listdropdown[i].key.toString();
+                      });
+                    },
+                    value: _listdropdown[i].value,
+                    child: Text(_listdropdown[i].key.toString()),
                   )
-                : null,
-            // iconSize: 24,
-            // elevation: 16,
-
-            style: const TextStyle(color: Colors.black),
-            underline: Container(
-              height: 2,
-              color: Colors.transparent,
+              ],
             ),
-            onChanged: (String? newValue) {
-              setState(() {
-                widget.onChangeinside(newValue!);
-                widget.value = newValue;
-                _showstr = newValue;
-              });
-            },
-
-            items: [
-              for (int i = 0; i < _listdropdown.length; i++)
-                DropdownMenuItem(
-                  value: _listdropdown[i].value,
-                  child: Text(_listdropdown[i].key.toString()),
-                )
-            ],
           ),
         ),
       ],

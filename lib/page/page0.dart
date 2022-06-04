@@ -5,6 +5,8 @@ import '../bloc/BlocEvent/ChangePageEvent.dart';
 import '../data/datapattern.dart';
 import '../data/global.dart';
 import '../mainBody.dart';
+import '../widget/QCWIDGET/W1SINGLESHOT/SINGLESHOTwidget.dart';
+import '../widget/QCWIDGET/W2MULTISHOT/MULTISHOTwidget.dart';
 import '../widget/QCWIDGET/consolelayout.dart';
 import '../widget/common/Checkbox.dart';
 import '../widget/common/Radiobutton.dart';
@@ -19,7 +21,8 @@ class Page0 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SINGLESHITLAYOUT();
+    // return SINGLESHOTmain();
+    return MULTISHOTmain();
     // return Page1();
   }
 }

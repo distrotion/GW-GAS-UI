@@ -64,7 +64,7 @@ class Logo2 extends StatelessWidget {
             padding: const EdgeInsetsDirectional.all(1),
             child: Container(
               height: 35,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 image: DecorationImage(
                   image: AssetImage("assets/images/logo_tpk.png"),
