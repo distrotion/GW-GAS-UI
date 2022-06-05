@@ -16,6 +16,10 @@ class P1WIDGETFIELD extends StatefulWidget {
     this.B06,
     this.B07,
     this.B08,
+    this.B09,
+    this.B10,
+    this.B11,
+    this.B12,
     this.CB01,
     this.CB02,
     this.CB03,
@@ -39,6 +43,10 @@ class P1WIDGETFIELD extends StatefulWidget {
   String? B06;
   String? B07;
   String? B08;
+  String? B09;
+  String? B10;
+  String? B11;
+  String? B12;
 
   Color? CB01;
   Color? CB02;

@@ -153,6 +153,10 @@ class tabledetailsearch extends StatelessWidget {
         B06: _data_exp[i].f30,
         B07: '',
         B08: '',
+        B09: '',
+        B10: '',
+        B11: _data_exp[i].f06,
+        B12: _data_exp[i].f07,
         isSELECTFUNC: true,
         SELECTFUNC: (input) {
           print(input);
