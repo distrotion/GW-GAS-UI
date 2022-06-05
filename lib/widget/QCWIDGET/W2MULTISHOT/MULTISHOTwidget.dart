@@ -736,6 +736,26 @@ class _tabtableB3 extends StatelessWidget {
                     ),
                   ),
                 ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: height ?? 25,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: const BorderRadius.all(Radius.circular(0)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        value?[i].V4 ?? '',
+                        style: TxtStyle(
+                            color: txtcolor ?? Colors.black,
+                            fontSize: txtsize ?? 12
+                            // fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
         ],
