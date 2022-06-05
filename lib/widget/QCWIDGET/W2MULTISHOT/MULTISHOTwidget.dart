@@ -8,6 +8,7 @@ import '../consolelayout.dart';
 class MULTISHOTmain extends StatelessWidget {
   MULTISHOTmain({
     Key? key,
+    this.LABEL,
     this.PO,
     this.CP,
     this.QTY,
@@ -40,6 +41,7 @@ class MULTISHOTmain extends StatelessWidget {
     //-------
   }) : super(key: key);
   //Left --------------------------------------------
+  String? LABEL;
   String? PO;
   String? CP;
   String? QTY;
@@ -83,6 +85,7 @@ class MULTISHOTmain extends StatelessWidget {
   Widget build(BuildContext context) {
     return SINGLESHITLAYOUT(
       cocover: Colors.green,
+      LABEL: LABEL ?? '',
       PO: PO ?? '',
       CP: CP ?? '',
       QTY: QTY ?? '',

@@ -8,6 +8,7 @@ class SINGLESHITLAYOUT extends StatelessWidget {
     this.childTOP,
     this.childBOT,
     this.childRIGHT,
+    this.LABEL,
     this.PO,
     this.CP,
     this.QTY,
@@ -24,6 +25,7 @@ class SINGLESHITLAYOUT extends StatelessWidget {
   List<Widget>? childTOP;
   List<Widget>? childBOT;
   List<Widget>? childRIGHT;
+  String? LABEL;
   String? PO;
   String? CP;
   String? QTY;
@@ -63,6 +65,7 @@ class SINGLESHITLAYOUT extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(0)),
                   ),
                   child: _dataDH(
+                    LABEL: LABEL ?? '',
                     PO: PO ?? '',
                     CP: CP ?? '',
                     QTY: QTY ?? '',
@@ -148,6 +151,7 @@ class SINGLESHITLAYOUT extends StatelessWidget {
 class _dataDH extends StatelessWidget {
   _dataDH({
     Key? key,
+    this.LABEL,
     this.PO,
     this.CP,
     this.QTY,
@@ -160,6 +164,7 @@ class _dataDH extends StatelessWidget {
     this.PARTNAME,
     this.MATERIAL,
   }) : super(key: key);
+  String? LABEL;
   String? PO;
   String? CP;
   String? QTY;
@@ -178,10 +183,10 @@ class _dataDH extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: Column(
         children: [
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
-            child: Text("ITEM DESCRIPTION",
-                style: TxtStyle(
+            child: Text(LABEL ?? "",
+                style: const TxtStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 14)),

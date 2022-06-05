@@ -9,6 +9,7 @@ class SINGLESHOTmain extends StatelessWidget {
   SINGLESHOTmain({
     Key? key,
     //------ Left
+    this.LABEL,
     this.PO,
     this.CP,
     this.QTY,
@@ -42,6 +43,7 @@ class SINGLESHOTmain extends StatelessWidget {
   }) : super(key: key);
 
   //Left --------------------------------------------
+  String? LABEL;
   String? PO; //ok
   String? CP; //ok
   String? QTY; //ok
@@ -84,6 +86,7 @@ class SINGLESHOTmain extends StatelessWidget {
   Widget build(BuildContext context) {
     return SINGLESHITLAYOUT(
       cocover: Colors.blue,
+      LABEL: LABEL ?? '',
       PO: PO ?? '',
       CP: CP ?? '',
       QTY: QTY ?? '',
