@@ -158,8 +158,10 @@ class tabledetailsearch extends StatelessWidget {
         B11: _data_exp[i].f06,
         B12: _data_exp[i].f07,
         isSELECTFUNC: true,
-        SELECTFUNC: (input) {
-          print(input);
+        SELECTFUNC: (PO, CP, FG) {
+          print(PO);
+          print(CP);
+          print(FG);
         },
       ));
     }
